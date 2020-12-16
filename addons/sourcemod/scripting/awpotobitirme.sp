@@ -28,11 +28,11 @@ public void OnPluginStart()
 
 public void OnMapStart()
 {
-	char mapname[PLATFORM_MAX_PATH];
+	char mapname[512];
 	GetCurrentMap(mapname, sizeof(mapname));
-	if (strcmp(mapname, "awp_") != 0)
+	if (StrContains(mapname, "awp_", false) == -1 || StrContains(mapname, "aim_", false) == -1)
 	{
-		SetFailState("[Otomatik-Tur-Bitirme] Awp Haritalarinda calismaktadir!");
+		SetFailState("[AWP-OTO-BITIRME] Bu eklenti sadece AWP-AIM haritalarinda calismaktadir.");
 	}
 }
 
